@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Detalle de Categoría
+{% endblock titulo %}
+
+{% block main %}
+    <ul>
+        <li>Nombre: {{ categoria.nombre }}</li>
+        {% if categoria.descripcion %}
+            <li>Descripción: {{ categoria.descripcion }}</li>
+        {% else %}
+            <li>Descripción: -</li>
+        {% endif %}
+    </ul>
+{% endblock main %}

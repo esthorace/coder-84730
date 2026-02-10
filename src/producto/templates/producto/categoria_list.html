@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Categorías de Productos
+{% endblock titulo %}
+
+{% block main %}
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{ categoria.nombre }} 
+                <a href="{% url 'producto:detalle' categoria.id %}">Detalle</a>
+                <a href="#">Borrar</a></li>
+            </li>
+        {% empty %}
+            <p>No hay registros</p>
+        {% endfor %}
+    </ul>
+{% endblock main %}
