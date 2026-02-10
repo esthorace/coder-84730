@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+{% extends 'core/base.html' %}
 
-  <body>
-    <h1>{{ titulo }}</h1>
-    <h2>Framework de Python</h2>
-    <p>Aplicaciones web rápidas</p>
-    <a href="{% url 'producto:lista' %}">Lista de Productos</a>
-  </body>
-</html>
+{% load static %}
+
+
+{% block titulo %}
+  <p>{{ titulo }}</p>
+{% endblock titulo %}
+
+{% block main %}
+  <img src="{% static 'core/img/caja-pandora.jpg' %}" alt="imagen"
+   width="20%" height="auto" style="display: block; margin: auto;" />
+{% endblock main %}
