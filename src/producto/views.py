@@ -25,11 +25,12 @@ def categoria_delete(request, pk: int):
 
 
 def categoria_create(request):
-    if request.method == "GET":
-        form = forms.CategoriaForm()
     if request.method == "POST":
         form = forms.CategoriaForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("producto:lista")
+    else:
+        form = forms.CategoriaForm()
+   
     return render(request, "producto/categoria_create.html", {"form": form})
