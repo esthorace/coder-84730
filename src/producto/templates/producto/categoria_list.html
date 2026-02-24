@@ -5,6 +5,7 @@
 {% endblock titulo %}
 
 {% block main %}
+    <button><a href="{% url 'producto:crear' %}">Crear</a></button>
     <ul>
         {% for categoria in categorias %}
             <li>{{ categoria.nombre }} 

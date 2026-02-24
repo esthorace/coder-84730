@@ -6,4 +6,4 @@ class Categoria(models.Model):
     descripcion = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.nombre} ({self.descripcion})"
+        return f"{self.nombre}"
