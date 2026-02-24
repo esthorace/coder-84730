@@ -17,7 +17,7 @@
         {% for categoria in categorias %}
             <li>{{ categoria.nombre }} 
                 <a href="{% url 'producto:detalle' categoria.id %}">Detalle</a>
-                <a href="#">Borrar</a></li>
+                <a href="{% url 'producto:borrar' categoria.id %}">Borrar</a></li>
             </li>
         {% empty %}
             <p>No hay registros</p>

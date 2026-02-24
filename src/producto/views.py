@@ -20,8 +20,11 @@ def categoria_detail(request, pk: int):
 
 def categoria_delete(request, pk: int):
     categoria = models.Categoria.objects.get(id=pk)
+    if request.method == "POST":
+        categoria.delete()
+        return redirect("producto:lista")
     contexto = {"categoria": categoria}
-    return render(request, "producto/categoria_detail.html", contexto)
+    return render(request, "producto/categoria_confirm_delete.html", contexto)
 
 
 def categoria_create(request):
