@@ -1,7 +1,11 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Crear Categorías de Productos
+    {% if form.instance.pk is not None %}
+        Actualizar Categorías de Productos
+    {% else %}
+        Crear Categorías de Productos
+    {% endif %}
 {% endblock titulo %}
 
 
