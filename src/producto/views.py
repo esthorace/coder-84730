@@ -5,14 +5,17 @@ from . import forms
 
 
 def categoria_list(request):
-    categorias = models.Categoria.objects.all()
+    consulta = request.GET.get("consulta")
+    if consulta:
+        categorias = models.Categoria.objects.filter(nombre__contains=consulta)
+    else:
+        categorias = models.Categoria.objects.all()
     return render(request, "producto/categoria_list.html", {"categorias": categorias})
 
 
 def categoria_detail(request, pk: int):
     categoria = models.Categoria.objects.get(id=pk)
-    contexto = {"categoria": categoria}
-    return render(request, "producto/categoria_detail.html", contexto)
+    return render(request, "producto/categoria_detail.html", {"categoria": categoria})
 
 
 def categoria_delete(request, pk: int):

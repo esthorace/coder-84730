@@ -6,6 +6,13 @@
 
 {% block main %}
     <button><a href="{% url 'producto:crear' %}">Crear</a></button>
+
+    <form method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+
     <ul>
         {% for categoria in categorias %}
             <li>{{ categoria.nombre }} 
