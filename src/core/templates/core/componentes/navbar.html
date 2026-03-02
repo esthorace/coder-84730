@@ -4,8 +4,11 @@
         
         {% if user.is_authenticated %}
             <li><a href="{% url 'producto:lista' %}">Categorías</a></li>
-            <li><a href="#">{{ user.username }}</a></li>        
-            <li><a href="#">Logout</a></li>
+            <li><a href="#">{{ user.username }}</a></li>
+            <form action="{% url 'core:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
         {% else %}
             <li><a href="{% url 'core:login' %}">Login</a></li>
         {% endif %}
