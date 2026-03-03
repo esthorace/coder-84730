@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+  <p>Nueva cuenta</p>
+{% endblock titulo %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrarse</button>
+    </form>
+{% endblock main %}
