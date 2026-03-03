@@ -4,6 +4,7 @@
         
         {% if user.is_authenticated %}
             <li><a href="{% url 'producto:lista' %}">Categorías</a></li>
+            <li><a href="{% url 'producto:lista_producto' %}">Producto</a></li>
             <li><a href="#">{{ user.username }}</a></li>
             <form action="{% url 'core:logout' %}" method="post">
                 {% csrf_token %}

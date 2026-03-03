@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Detalle de Producto
+{% endblock titulo %}
+
+{% block main %}
+    <ul>
+        <li>Nombre: {{ producto.nombre }}</li>
+        {% if producto.categoria %}
+            <li>Categoría: {{ producto.categoria.nombre }}</li>
+        {% endif %}
+        <li>Unidad: {{ producto.unidad_de_medida }}</li>
+        <li>Stock: {{ producto.stock }}</li>
+        <li>Precio: ${{ producto.precio }}</li>
+        {% if producto.descripcion %}
+            <li>Descripción: {{ producto.descripcion }}</li>
+        {% else %}
+            <li>Descripción: -</li>
+        {% endif %}
+    </ul>
+{% endblock main %}

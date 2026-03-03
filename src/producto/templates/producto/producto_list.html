@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Productos
+{% endblock titulo %}
+
+{% block main %}
+    <button><a href="{% url 'producto:crear_producto' %}">Crear</a></button>
+
+    <form method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+
+    <ul>
+        {% for producto in object_list %}
+            <li>{{ producto.nombre }} ({{ producto.unidad_de_medida }}) - ${{ producto.precio }}
+                <a href="{% url 'producto:detalle_producto' producto.id %}">Detalle</a>
+                <a href="{% url 'producto:cambiar_producto' producto.id %}">Cambiar</a>
+                <a href="{% url 'producto:borrar_producto' producto.id %}">Borrar</a></li>
+        {% empty %}
+            <p>No hay registros</p>
+        {% endfor %}
+    </ul>
+{% endblock main %}

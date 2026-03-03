@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
-from . import models
-from . import forms
+from .. import models
+from .. import forms
 
 
 # def categoria_list(request):
