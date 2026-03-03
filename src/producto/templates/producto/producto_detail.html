@@ -5,18 +5,18 @@
 {% endblock titulo %}
 
 {% block main %}
-    <ul>
-        <li>Nombre: {{ producto.nombre }}</li>
+<div class="card shadow mx-auto" style="max-width: 500px;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">{{ producto.nombre }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
         {% if producto.categoria %}
-            <li>Categoría: {{ producto.categoria.nombre }}</li>
+            <li class="list-group-item">Categoría: <span class="fw-bold">{{ producto.categoria.nombre }}</span></li>
         {% endif %}
-        <li>Unidad: {{ producto.unidad_de_medida }}</li>
-        <li>Stock: {{ producto.stock }}</li>
-        <li>Precio: ${{ producto.precio }}</li>
-        {% if producto.descripcion %}
-            <li>Descripción: {{ producto.descripcion }}</li>
-        {% else %}
-            <li>Descripción: -</li>
-        {% endif %}
+        <li class="list-group-item">Unidad: <span class="fw-bold">{{ producto.unidad_de_medida }}</span></li>
+        <li class="list-group-item">Stock: <span class="fw-bold">{{ producto.stock }}</span></li>
+        <li class="list-group-item">Precio: <span class="text-success fw-bold">${{ producto.precio }}</span></li>
+        <li class="list-group-item">Descripción: <span class="fw-light">{% if producto.descripcion %}{{ producto.descripcion }}{% else %}-{% endif %}</span></li>
     </ul>
+</div>
 {% endblock main %}

@@ -2,12 +2,18 @@
 
 {% load static %}
 
-
 {% block titulo %}
-  <p>La Caja de Pandora</p>
+  <span class="fs-2 fw-bold">La Caja de Pandora</span>
 {% endblock titulo %}
 
 {% block main %}
-  <img src="{% static 'core/img/caja-pandora.jpg' %}" alt="imagen"
-   width="20%" height="auto" style="display: block; margin: auto;" />
+<div class="d-flex justify-content-center align-items-center" style="min-height: 40vh;">
+  <div class="card shadow" style="width: 22rem;">
+    <img src="{% static 'core/img/caja-pandora.jpg' %}" class="card-img-top" alt="imagen">
+    <div class="card-body text-center">
+      <h5 class="card-title">Bienvenido a la Caja de Pandora</h5>
+      <p class="card-text">Explora productos y categorías usando el menú superior.</p>
+    </div>
+  </div>
+</div>
 {% endblock main %}

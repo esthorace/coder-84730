@@ -5,12 +5,12 @@
 {% endblock titulo %}
 
 {% block main %}
-    <ul>
-        <li>Nombre: {{ categoria.nombre }}</li>
-        {% if categoria.descripcion %}
-            <li>Descripción: {{ categoria.descripcion }}</li>
-        {% else %}
-            <li>Descripción: -</li>
-        {% endif %}
+<div class="card shadow mx-auto" style="max-width: 500px;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">{{ categoria.nombre }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Descripción: <span class="fw-light">{% if categoria.descripcion %}{{ categoria.descripcion }}{% else %}-{% endif %}</span></li>
     </ul>
+</div>
 {% endblock main %}

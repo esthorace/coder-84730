@@ -1,16 +1,23 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-  <p>Login</p>
+    <span class="fs-2 fw-bold">Login</span>
 {% endblock titulo %}
 
 {% block main %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Iniciar sesión</button>
-    </form>
-    <p>
-        ¿No tienes una cuenta? <a href="{% url 'core:register' %}">Regístrate aquí</a>
-    </p>
+<div class="card shadow mx-auto" style="max-width: 400px;">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Iniciar sesión</h5>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+        </form>
+        <p class="mt-3 text-center">
+            ¿No tienes una cuenta? <a href="{% url 'core:register' %}">Regístrate aquí</a>
+        </p>
+    </div>
+</div>
 {% endblock main %}

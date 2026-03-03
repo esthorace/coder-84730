@@ -1,10 +1,14 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-  <p>Logout</p>
+  <span class="fs-2 fw-bold">Logout</span>
 {% endblock titulo %}
 
 {% block main %}
-    <p>Has cerrado sesión</p>
-    <button><a href="{% url 'core:index' %}">Ok</a></button>
+<div class="card shadow mx-auto" style="max-width: 400px;">
+  <div class="card-body text-center">
+    <h5 class="card-title mb-3">Has cerrado sesión</h5>
+    <a href="{% url 'core:index' %}" class="btn btn-primary">Volver al inicio</a>
+  </div>
+</div>
 {% endblock main %}

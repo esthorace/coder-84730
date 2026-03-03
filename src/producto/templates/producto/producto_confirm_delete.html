@@ -5,9 +5,14 @@
 {% endblock titulo %}
 
 {% block main %}
-    <p>¿Estás seguro de borrar el producto "{{ producto.nombre }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmo</button>
-    </form>
+<div class="card shadow mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+        <p class="mb-4">¿Estás seguro de borrar el producto <strong>{{ producto.nombre }}</strong>?</p>
+        <form method="post" class="d-flex justify-content-between">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <a href="{% url 'producto:lista_producto' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
 {% endblock main %}

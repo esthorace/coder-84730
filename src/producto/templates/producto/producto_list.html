@@ -5,22 +5,44 @@
 {% endblock titulo %}
 
 {% block main %}
-    <button><a href="{% url 'producto:crear_producto' %}">Crear</a></button>
-
-    <form method="get">
-        <input type="text" name="consulta" placeholder="Buscar...">
-        <button type="submit">Buscar</button>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a href="{% url 'producto:crear_producto' %}" class="btn btn-success">Crear producto</a>
+    <form method="get" class="d-flex" style="max-width: 300px;">
+        <input type="text" name="consulta" class="form-control me-2" placeholder="Buscar...">
+        <button type="submit" class="btn btn-outline-light bg-primary">Buscar</button>
     </form>
+</div>
 
-
-    <ul>
-        {% for producto in object_list %}
-            <li>{{ producto.nombre }} ({{ producto.unidad_de_medida }}) - ${{ producto.precio }}
-                <a href="{% url 'producto:detalle_producto' producto.id %}">Detalle</a>
-                <a href="{% url 'producto:cambiar_producto' producto.id %}">Cambiar</a>
-                <a href="{% url 'producto:borrar_producto' producto.id %}">Borrar</a></li>
-        {% empty %}
-            <p>No hay registros</p>
-        {% endfor %}
-    </ul>
+<div class="card shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-striped align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Unidad</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in object_list %}
+                <tr>
+                    <td><strong>{{ producto.nombre }}</strong></td>
+                    <td>{{ producto.unidad_de_medida }}</td>
+                    <td class="text-success fw-bold">${{ producto.precio }}</td>
+                    <td>
+                        <a href="{% url 'producto:detalle_producto' producto.id %}" class="btn btn-sm btn-info me-1">Detalle</a>
+                        <a href="{% url 'producto:cambiar_producto' producto.id %}" class="btn btn-sm btn-warning me-1">Cambiar</a>
+                        <a href="{% url 'producto:borrar_producto' producto.id %}" class="btn btn-sm btn-danger">Borrar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted">No hay registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock main %}
