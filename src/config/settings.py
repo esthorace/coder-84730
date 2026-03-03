@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-o^n_lv^nclb8j=++)g7j82xz5ebko#(1@dif=#a8*jnarw#ps$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["esthorace.pythonanywhere.com"]
 
 
 # Application definition
@@ -118,3 +118,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 LOGIN_REDIRECT_URL = "core:index"
+
+try:
+    # importar la configuración de desarrollo (setting_dev)
+    # si existe el archivo
+    from settings_dev import *
+except ModuleNotFoundError:
+    pass
